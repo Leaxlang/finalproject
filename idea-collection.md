@@ -26,7 +26,7 @@ Enter your name: [Prompt user to input name] "Bob" -- for the purpose of this it
 Prelogue:
 
 Bob is bored of his corporate life, so he buys a house in the country. He walks through the door and immeditaly knows its haunted.
-In his moment of realization, the ghosts trapped him in his bathroom. They make a deal with him: If he's smart enough to beat their riddles, they'll let him go.  
+In his moment of realization, the ghosts trapped him in his bathroom. They make a deal with him: If he's smart enough to beat their games, they'll let him go.  
 
 Game Begins: 
 
