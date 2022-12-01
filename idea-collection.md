@@ -54,6 +54,8 @@ What will you say?
 1. "oy Im bri'ish too!"
 2. "USA USA USA!"
 
+  What if you say "oy Im bri'ish too!" the ghost or queen or whatver takes the pen away... and at the end, at the final question if Bob can't solve it he can still escape if he picks a lock with his pen, but that depends on what you said here. Basically Bob beocme a ghost if he can't solve it, if he can't solve it but has the pen he can pick a lock with it and escape, and if he solves it he is free to go whatever he said at this point.
+  
     Either way Bob has to play tic-tac-toe with her
    
         Tic Tac Toe game
