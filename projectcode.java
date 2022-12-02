@@ -14,11 +14,6 @@ public class projectcode{
    * - Epilogue
    */
 
-
-   //variables (that are important outside ouf your method)
-
-
-
   //main method
   public static void main(String[] args){
       Typing();
