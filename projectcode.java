@@ -5,6 +5,7 @@ public class projectcode{
    /*
    * TASKS:
    * - command line -help
+   * - storage of name
    * - Prologue
    * - ASCII map of house
    * - Puzzle 1: Typing Game ✔
@@ -12,6 +13,7 @@ public class projectcode{
    * - Puzzle 3: Tic-Tac-Toe
    * - Final game
    * - Epilogue
+   * - Skeleton of the script (all the print statements)
    */
 
   //main method
