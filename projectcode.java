@@ -22,6 +22,13 @@ public class projectcode{
   }
   //method to put the prologue in
   public static void Prologue(){
+     System.out.println("You are bored of your everyday life, so you decide to buy a house in 
+                        + " the country. When you arrive the house looks different than it was 
+                        + " on the website, looks scary and dark. You go inside anyway, 
+                        + " but as soon as you step in a cold breeze goes over your back and a 
+                        + " couple second slater all the doors and windows close. The ghost appear 
+                        + " and tell you that you have to prove you are worthy to still live,"
+                        + " else you will become one of them to haunt the house for all eternity")
 
   }
 
