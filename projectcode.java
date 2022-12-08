@@ -6,7 +6,7 @@ public class projectcode{
    * TASKS:
    * - command line -help
    * - storage of name
-   * - Prologue
+   * - Prologue ✔
    * - ASCII map of house
    * - Puzzle 1: Typing Game ✔
    * - Puzzle 2: Lightbulb
@@ -22,15 +22,19 @@ public class projectcode{
   }
   //method to put the prologue in
   public static void Prologue(){
-     System.out.println("Bob is bored of your everyday life, so you decide to buy a house in" 
-                        + " the country. When Bob arrives, the house looks different than it" 
-                        + " was on the website, looks scary and dark. Bob go inside anyway," 
-                        + " but as soon as you step in a cold breeze goes over his back and" 
-                        + " a couple seconds later all the doors and windows close." 
-                        + " The ghost appear and tell Bob that he has to prove he are worthy"
+   System.out.println("Bob is bored of your everyday life, so you decide to buy a house "
+                        + "in the country.");
+   pause(2000);
+   System.out.println("When Bob arrives, the house looks different than it"
+                        + " was on the website, looks scary and dark.");
+   pause(2000);
+   System.out.println("Bob go inside anyway,"
+                        + " but as soon as you step in a cold breeze goes over his back "
+                        + "and a couple seconds later all the doors and windows close.");
+   pause(2000);
+   System.out.println("The ghost appear and tell Bob that he has to prove he are worthy"
                         + " to still live, else he will become one of them to haunt the "
-                        + "house for all eternity")
-
+                        + "house for all eternity");
   }
 
   //method for the map
@@ -88,6 +92,12 @@ public class projectcode{
   //Epilogue
   public static void Epilogue(){
 
+  }
+   
+   public static void pause(long milliseconds) {
+    try {
+      Thread.sleep(milliseconds);
+    } catch (InterruptedException ie) {}
   }
 
 }
