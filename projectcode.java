@@ -10,7 +10,7 @@ public class projectcode{
    * - ASCII map of house ✔
    * - Puzzle 1: Typing Game ✔
    * - Puzzle 2: Mathgame ✔
-   * - Puzzle 3: Tic-Tac-Toe 
+   * - Puzzle 3: Tic-Tac-Toe
    * - Final game
    * - Epilogue
    * - Skeleton of the script (all the print statements) ✔
@@ -72,10 +72,11 @@ public class projectcode{
  }
 
 public static void displayHelp() {
- System.out.println("Follow instructions for each mini game to escape the"
+    System.out.println("Follow instructions for each mini game to escape the"
                     + "haunted house. To quit game while playing, press: "
                     + "Ctrl + C");
-System.out.println("Press Enter to exit help menu!")
+    pause(2000);
+    System.out.println("Press Enter to exit help menu!")
 }
 
   public static void TextSequene1(String name){
@@ -85,6 +86,7 @@ System.out.println("Press Enter to exit help menu!")
     System.out.println(name + " looks up at the mirror covered in dirt, and "
                         + "notices something(or someone) is writing on it. "
                         + "They open the vanity and find a paper and a pen.");
+    pause(2000);
     System.out.println("Are you going to: ");
     System.out.println("1. Try and copy down the words?");
     System.out.println("2.Use a pen to pick the lock?");
@@ -136,9 +138,11 @@ System.out.println("Press Enter to exit help menu!")
   public static void TextSequene2(){
     System.out.println("The door creaks open, you enter the living room. "
                       + "It is pitchblack.");
+    pause(2000);
     System.out.println("The voice returns: ' A home owner should  know how to "
                       + "do some basic math.' ");
   }
+  pause(2000);
 
   //Puzzle 2: MathGame
   public static void Mathgame(){
@@ -167,7 +171,9 @@ System.out.println("Press Enter to exit help menu!")
     Scanner input = new Scanner(System.in);
     System.out.println("Ah yes! The light turns on, you see a rocking chair and"
                       + " the Queen of England is sitting on it !!!");
+    pause(2000);
     System.out.println("What will you say?");
+    pause(2000);
     System.out.println("1. oy Im bri'ish too!");
     System.out.println("2. USA USA USA!");
     int choice = input.nextInt();
@@ -189,6 +195,22 @@ System.out.println("Press Enter to exit help menu!")
 
   //Epilogue
   public static void Epilogue(){
+
+    System.out.println("Suddenly you hear the tall front door creak open...")
+    System.out.println("The spirits announce: You have outwitted us! Which "
+                      + "makes you too smart to spend the afterlife "
+                      + "haunting people. ");
+    pause(2000);
+    System.out.println(name + " steps into the outside world. The sun shines a "
+                      + "little too brightly; it's a shame, that house was "
+                      + "starting to feel like a home");
+    pause(2000);
+    System.out.println("Suddenly a fresh new idea hits you...");
+    pause(2000);
+    System.out.println("What if people paid to do this! Something like "
+                        + name + "'s Escape Rooms!");
+    pause(3000);
+    System.out.println("THE END")
 
   }
 
