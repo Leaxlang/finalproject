@@ -49,9 +49,22 @@ public class projectcode{
   }
 
   //method for the map
-  public static void ASCIImap(){
-
+   public static void ASCIImap(){ 
+    // Print the roof of the house
+    System.out.println("   /\\");
+    System.out.println("  /  \\");
+    System.out.println(" /    \\");
+    
+    // Print the walls of the house
+    System.out.println("+------+");
+    System.out.println("|      |");
+    System.out.println("|      |");
+    
+    // Print the foundation of the house
+    System.out.println("+------+");
   }
+ }
+
   public static void TextSequene1(String name){
     Scanner input = new Scanner(System.in);
 
