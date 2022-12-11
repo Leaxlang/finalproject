@@ -46,8 +46,8 @@ Once Typing Tutor is Finished:
 
 The door creaks open, now Bob enters the living room. It's pitchblack //ASCII of house map 
 
-    Ligthbulb part that Lea wanted to add
-    
+  Math game
+
 Ah yes! The light is back on, he sees a rocking chair and the Queen of England sitting on it. 
 
 What will you say?
