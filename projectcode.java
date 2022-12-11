@@ -23,43 +23,44 @@ public class projectcode{
     TextSequene1(playerName);
     Typing();
     TicTacToe();
-    
+
   }
   //method to put the prologue in
   public static String Prologue(){
     Scanner input = new Scanner(System.in);
     System.out.println("What is your name?");
     String name = input.nextLine();
-    
 
-    System.out.println(name + " is bored of your everyday life, so you decide to buy a house "
-                          + "in the country.");
+
+    System.out.println(name + " is bored of your everyday life, so they decide"
+                        + " to buy a house "
+                        + "in the country.");
     pause(2000);
-    System.out.println("When " + name + " arrives, the house looks different than it"
-                          + " was on the website, looks scary and dark.");
+    System.out.println("When " + name + " arrives, the house looks different"
+                        + " than it did on Zillow...");
     pause(2000);
-    System.out.println(name +" goes inside anyway,"
-                          + " but as soon as you step in a cold breeze goes over his back "
-                          + "and a couple seconds later all the doors and windows close.");
+    System.out.println(name +" decides to check it out, but as soon as they"
+                        + " step inside a cold breeze hits them "
+                        + "and all the windows and doors slam shut!");
     pause(2000);
-    System.out.println("The ghost appear and tell Bob that he has to prove he are worthy"
-                          + " to still live, else he will become one of them to haunt the "
-                          + "house for all eternity");
+    System.out.println(name + " hears a voice: In order to make it out of here "
+                          + "alive, you must prove your wit! Or you will haunt "
+                          + "this house for all eternity");
     return name;
   }
 
   //method for the map
-   public static void ASCIImap(){ 
+   public static void ASCIImap(){
     // Print the roof of the house
     System.out.println("   /\\");
     System.out.println("  /  \\");
     System.out.println(" /    \\");
-    
+
     // Print the walls of the house
     System.out.println("+------+");
     System.out.println("|      |");
     System.out.println("|      |");
-    
+
     // Print the foundation of the house
     System.out.println("+------+");
   }
@@ -69,26 +70,28 @@ public class projectcode{
     Scanner input = new Scanner(System.in);
 
     System.out.println("");
-    System.out.println(name + " looks up at the mirror covered in dirt, and notices something"
-                          + "(or someone) is writing in it. He opens the vanity and finds a paper and a pen.");
-    System.out.println("Are you going to ");
-    System.out.println("1. Try copy down the words?");
+    System.out.println(name + " looks up at the mirror covered in dirt, and "
+                        + "notices something(or someone) is writing on it. "
+                        + "They open the vanity and find a paper and a pen.");
+    System.out.println("Are you going to: ");
+    System.out.println("1. Try and copy down the words?");
     System.out.println("2.Use a pen to pick the lock?");
 
     int playerChoice = input.nextInt();
 
     if(playerChoice == 2){
-      System.out.println("You open the door but the door opens to the edge of a cliff. You have to go back inside ");
+      System.out.println("You pick the lock and open the door to find yourself "
+                        + "faced at the edge of a cliff; back inside! ");
       pause(2000);
       TextSequene1(name);
-    }else if(playerChoice == 1){ 
+    }else if(playerChoice == 1){
       Typing();
     }
   }
 
   //Puzzle 1: Typing Game
   public static void Typing(){
-    Scanner input = new Scanner(System.in);   
+    Scanner input = new Scanner(System.in);
 
       //creating random characters
       char ch1 = (char)('a' + (Math.random() * ('z' - 'a' + 1)));
@@ -99,26 +102,30 @@ public class projectcode{
       //making a "word" from the random characters
       String word = "" + ch1 + ch2 + ch3 + ch4;
 
+      System.out.println("Correct Choice, " + name + "don't mess up! ");
+
       //Asking the user to type the "word"
-      System.out.println("Type in the following: " + word );
+      System.out.println("Copy down the following: " + word );
 
       String userInput = input.next();
 
       //giving the user feedback; depending if they typed the word right
       if (userInput.equals(word)){
-        System.out.println("You got it!");
+        System.out.println("Perhaps we've been too easy on you...");
         TextSequene2();
       }else if (userInput.equalsIgnoreCase(word)){
-        System.out.println("Almost, mind the case.");
+        System.out.println("Never been to grade school? Mind the case!");
         Typing();
       }else{
-        System.out.println("Wrong!");
+        System.out.println("Your future is looking dim... try again");
         Typing();
       }
   }
   public static void TextSequene2(){
-    System.out.println("The door creaks open, you enter the living room. It is pitchblack.");
-    System.out.println("A voice says: Are you smart enough?");
+    System.out.println("The door creaks open, you enter the living room. "
+                      + "It is pitchblack.");
+    System.out.println("The voice returns: ' A home owner should  know how to "
+                      + "do some basic math.' ");
   }
 
   //Puzzle 2: MathGame
@@ -136,16 +143,18 @@ public class projectcode{
     int userInput = input.nextInt();
     //check the users answer and give feedback
     if (userInput == result){
-      System.out.println("Good job!");
+      System.out.println("Im impressed, the last guy wasn't so lucky...");
 
     }else{
-      System.out.println("Wrong!");
+      System.out.println("Our ghost hiring budget is tight, ill give you"
+                        + " another chance");
       TextSequene3();
     }
   }
   public static void TextSequene3(){
     Scanner input = new Scanner(System.in);
-    System.out.println("Ah yes! The light turns on, you see a rocking chair and the Queen of England sitting on it.");
+    System.out.println("Ah yes! The light turns on, you see a rocking chair and"
+                      + " the Queen of England is sitting on it !!!");
     System.out.println("What will you say?");
     System.out.println("1. oy Im bri'ish too!");
     System.out.println("2. USA USA USA!");
@@ -170,7 +179,7 @@ public class projectcode{
   public static void Epilogue(){
 
   }
-   
+
    public static void pause(long milliseconds) {
     try {
       Thread.sleep(milliseconds);
