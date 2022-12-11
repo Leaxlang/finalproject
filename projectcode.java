@@ -16,6 +16,7 @@ public class projectcode{
    * - Skeleton of the script (all the print statements)
    */
 
+
   //main method
   public static void main(String[] args){
     String playerName = Prologue();
@@ -65,6 +66,17 @@ public class projectcode{
     System.out.println("+------+");
   }
  }
+
+ if(args.length != 0 && args[0].equals("-help")) {
+   displayHelp();
+ }
+
+public static void displayHelp() {
+ System.out.println("Follow instructions for each mini game to escape the"
+                    + "haunted house. To quit game while playing, press: "
+                    + "Ctrl + C");
+System.out.println("Press Enter to exit help menu!")
+}
 
   public static void TextSequene1(String name){
     Scanner input = new Scanner(System.in);
