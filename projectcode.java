@@ -210,7 +210,7 @@ public static void displayHelp() {
     System.out.println("What if people paid to do this! Something like "
                         + name + "'s Escape Rooms!");
     pause(3000);
-    System.out.println("THE END")
+    System.out.println("THE END");
 
   }
 
