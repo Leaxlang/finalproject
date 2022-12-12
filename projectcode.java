@@ -189,10 +189,39 @@ public static void displayHelp() {
   public static void TicTacToe(){
   }
 
+  public static void GameOver() {
+
+    pause(2000);
+    System.out.println("You look up and the Queen of England is gone. The empty"
+                      + " chair creaks and you can only hear your breath. You "
+                      + "blink, suddenly there's light and music in the house."
+                      + "You hear people talking at the dining table and walk "
+                      + "over, recognizing a voice. *Realization* ");
+    pause(2000);
+    System.out.println("It's the ghost you've been hearing this whole time.");
+    pause(2000);
+    System.out.println("Shi-");
+    System.out.println("GAME OVER");
+
+  }
+
+  //add in text sequence to introduce Rock Paper Scissors
+
   //Final Game
   public static void finalGame(){
       System.out.println("Final game"); //just here for test purposes
   }
+
+public static void NotQuite() {
+
+  pause(2000);
+  System.out.println(" 'It's a shame!' you hear booming through the walls.'We "
+                    + "will have to call HR to start your on-boarding process."
+                    + " Can I get you a coffee?' ");
+  pause(2000);
+  System.out.println("GAME OVER");
+
+}
 
   //Epilogue
   public static void Epilogue(){
@@ -214,6 +243,7 @@ public static void displayHelp() {
     System.out.println("THE END");
 
   }
+
 
    public static void pause(long milliseconds) {
     try {
