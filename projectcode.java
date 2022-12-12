@@ -76,7 +76,7 @@ public static void displayHelp() {
                     + "haunted house. To quit game while playing, press: "
                     + "Ctrl + C");
     pause(2000);
-    System.out.println("Press Enter to exit help menu!")
+    System.out.println("Press Enter to exit help menu!");
 }
 
   public static void TextSequene1(String name){
@@ -159,7 +159,8 @@ public static void displayHelp() {
     int userInput = input.nextInt();
     //check the users answer and give feedback
     if (userInput == result){
-      System.out.println("Im impressed, the last guy wasn't so lucky...");
+      System.out.println("Im impressed, the last guy wasn't so lucky..."
+                        + "lights on please!");
 
     }else{
       System.out.println("Our ghost hiring budget is tight, ill give you"
