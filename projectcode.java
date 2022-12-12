@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 public class projectcode{
 
@@ -19,11 +20,17 @@ public class projectcode{
 
   //main method
   public static void main(String[] args){
-    String playerName = Prologue();
-    ASCIImap();
-    TextSequene1(playerName);
-    Typing();
+
+    // if(args.length != 0 && args[0].equals("-help")) {
+    //   displayHelp();
+    // }
+    // Title();
+    // String playerName = Prologue();
+    // ASCIImap();
+    // TextSequene1(playerName);
+    // Typing(playerName);
     TicTacToe();
+    
 
   }
   //method to put the prologue in
@@ -65,11 +72,9 @@ public class projectcode{
     // Print the foundation of the house
     System.out.println("+------+");
   }
- }
+ 
 
- if(args.length != 0 && args[0].equals("-help")) {
-   displayHelp();
- }
+ 
 
 public static void displayHelp() {
     System.out.println("Follow instructions for each mini game to escape the"
@@ -89,7 +94,7 @@ public static void displayHelp() {
     pause(2000);
     System.out.println("Are you going to: ");
     System.out.println("1. Try and copy down the words?");
-    System.out.println("2.Use a pen to pick the lock?");
+    System.out.println("2. Use a pen to pick the lock?");
 
     int playerChoice = input.nextInt();
 
@@ -99,12 +104,15 @@ public static void displayHelp() {
       pause(2000);
       TextSequene1(name);
     }else if(playerChoice == 1){
-      Typing();
+      Typing(name);
+    }
+    else{
+      TextSequene1(name);
     }
   }
 
   //Puzzle 1: Typing Game
-  public static void Typing(){
+  public static void Typing(String name){
     Scanner input = new Scanner(System.in);
 
       //creating random characters
@@ -129,10 +137,10 @@ public static void displayHelp() {
         TextSequene2();
       }else if (userInput.equalsIgnoreCase(word)){
         System.out.println("Never been to grade school? Mind the case!");
-        Typing();
+        Typing(name);
       }else{
         System.out.println("Your future is looking dim... try again");
-        Typing();
+        Typing(name);
       }
   }
   public static void TextSequene2(){
@@ -141,8 +149,9 @@ public static void displayHelp() {
     pause(2000);
     System.out.println("The voice returns: ' A home owner should  know how to "
                       + "do some basic math.' ");
+    pause(2000);  
   }
-  pause(2000);
+  
 
   //Puzzle 2: MathGame
   public static void Mathgame(){
@@ -180,24 +189,124 @@ public static void displayHelp() {
     int choice = input.nextInt();
     if(choice == 1){
 
-    }else{
+    }else if(choice ==2){
 
+    }else{
+      System.out.println("I didn't hear you can you repeat that?");
     }
   }
 
   //Puzzle 3: TicTacToe
   public static void TicTacToe(){
+
+    Scanner input = new Scanner(System.in);
+    String[] board = {"1","2","3","4","5","6","7","8","9"};
+    
+    
+    
+    while(checkBoard(board)== "GOING"){
+      printBoard(board);
+      checkBoard(board);
+      
+      if(checkBoard(board)!="WIN"){
+      System.out.println("Type the number where you want to set you symbol:");
+      int choosenField = input.nextInt();
+      if((board[choosenField-1] == "X")||(board[choosenField-1]=="O")){
+        System.out.println("This field has already been claimed.");
+        choosenField = input.nextInt();
+      }else{}
+      
+      board[choosenField-1] = "X";
+      printBoard(board);
+      checkBoard(board);
+    }
+      
+      
+      System.out.print("let me think");
+      pause(500);System.out.print(".");
+      pause(500);System.out.print(".");
+      pause(500);System.out.println(".");
+      
+
+      while(true){
+        
+        int randomNumber = (int)(Math.random()*(8)+1);
+        if (board[randomNumber] != "X" &&  board[randomNumber] != "O"){
+          board[randomNumber] = "O";
+          break;
+        }else{
+          randomNumber = (int)(Math.random()*(8)+1);
+        }
+        
+      }
+    }
+    
+    
+  }
+  public static void printBoard(String[] board){
+    System.out.println(board[0] + " | " + board[1] + " | " + board[2]);
+    System.out.println("----------");
+    System.out.println(board[3] + " | " + board[4] + " | " + board[5]);
+    System.out.println("----------");
+    System.out.println(board[6] + " | " + board[7] + " | " + board[8]);
+  }
+  public static String checkBoard(String[] board){
+    int count = 0;
+    for(String s:board){
+      if((s.equals("X"))||(s.equals("O"))){
+        count++;
+        if(count > 8){
+          System.out.println("It's a draw");
+          return "DRAW";
+        }
+      }
+    }
+    if((board[0].equals("X") && board[1].equals("X") && board[2].equals("X")) ||
+        (board[3].equals("X") && board[4].equals("X") && board[5].equals("X")) ||
+        (board[6].equals("X") && board[7].equals("X") && board[8].equals("X")) ||
+        (board[0].equals("X") && board[3].equals("X") && board[6].equals("X")) ||
+        (board[1].equals("X") && board[4].equals("X") && board[7].equals("X")) ||
+        (board[2].equals("X") && board[5].equals("X") && board[8].equals("X")) ||
+        (board[0].equals("X") && board[4].equals("X") && board[8].equals("X")) ||
+        (board[2].equals("X") && board[4].equals("X") && board[6].equals("X")) ){
+          System.out.println("You won!");
+          return "WIN";
+
+    }else if((board[0].equals("O") && board[1].equals("O") && board[2].equals("O")) ||
+                (board[3].equals("O") && board[4].equals("O") && board[5].equals("O")) ||
+                (board[6].equals("O") && board[7].equals("O") && board[8].equals("O")) ||
+                (board[0].equals("O") && board[3].equals("O") && board[6].equals("O")) ||
+                (board[1].equals("O") && board[4].equals("O") && board[7].equals("O")) ||
+                (board[2].equals("O") && board[5].equals("O") && board[8].equals("O")) ||
+                (board[0].equals("O") && board[4].equals("O") && board[8].equals("O")) ||
+                (board[2].equals("O") && board[4].equals("O") && board[6].equals("O"))){
+                  printBoard(board);
+                  System.out.println("You lost!");
+                  System.out.println("The ghost kills you. You are now a ghost too.");
+                  //System.out.println("Try again:");
+                  //TicTacToe();
+                  return "LOSS";
+      }
+      else{
+        
+        return "GOING";
+
+      }
+    
+
   }
 
   //Final Game
   public static void finalGame(){
       System.out.println("Final game"); //just here for test purposes
+
+      
   }
 
   //Epilogue
-  public static void Epilogue(){
+  public static void Epilogue(String name){
 
-    System.out.println("Suddenly you hear the tall front door creak open...")
+    System.out.println("Suddenly you hear the tall front door creak open...");
     System.out.println("The spirits announce: You have outwitted us! Which "
                       + "makes you too smart to spend the afterlife "
                       + "haunting people. ");
@@ -212,7 +321,7 @@ public static void displayHelp() {
                         + name + "'s Escape Rooms!");
     pause(3000);
     System.out.println("THE END");
-
+  
   }
 
    public static void pause(long milliseconds) {
@@ -220,5 +329,29 @@ public static void displayHelp() {
       Thread.sleep(milliseconds);
     } catch (InterruptedException ie) {}
   }
+  public static void Title(){
+    System.out.println("▓█████   ██████  ▄████▄   ▄▄▄       ██▓███  ▓█████    ");
+    System.out.println("▓█   ▀ ▒██    ▒ ▒██▀ ▀█  ▒████▄    ▓██░  ██▒▓█   ▀    ");
+    System.out.println("▒███   ░ ▓██▄   ▒▓█    ▄ ▒██  ▀█▄  ▓██░ ██▓▒▒███      ");
+    System.out.println("▒▓█  ▄   ▒   ██▒▒▓▓▄ ▄██▒░██▄▄▄▄██ ▒██▄█▓▒ ▒▒▓█  ▄    ");
+    System.out.println("░▒████▒▒██████▒▒▒ ▓███▀ ░ ▓█   ▓██▒▒██▒ ░  ░░▒████▒   ");
+    System.out.println("░░ ▒░ ░▒ ▒▓▒ ▒ ░░ ░▒ ▒  ░ ▒▒   ▓▒█░▒▓▒░ ░  ░░░ ▒░ ░   ");
+    System.out.println(" ░ ░  ░░ ░▒  ░ ░  ░  ▒     ▒   ▒▒ ░░▒ ░      ░ ░  ░   ");
+    System.out.println("   ░   ░  ░  ░  ░          ░   ▒   ░░          ░      ");
+    System.out.println("   ░  ░      ░  ░ ░            ░  ░            ░  ░   ");
+    System.out.println("");
+    System.out.println(" ██░ ██  ▒█████   █    ██   ██████ ▓█████             ");
+    System.out.println("▓██░ ██▒▒██▒  ██▒ ██  ▓██▒▒██    ▒ ▓█   ▀             ");
+    System.out.println("▒██▀▀██░▒██░  ██▒▓██  ▒██░░ ▓██▄   ▒███               ");
+    System.out.println("░▓█ ░██ ▒██   ██░▓▓█  ░██░  ▒   ██▒▒▓█  ▄             ");
+    System.out.println("░▓█▒░██▓░ ████▓▒░▒▒█████▓ ▒██████▒▒░▒████▒            ");
+    System.out.println(" ▒ ░░▒░▒░ ▒░▒░▒░ ░▒▓▒ ▒ ▒ ▒ ▒▓▒ ▒ ░░░ ▒░ ░            ");
+    System.out.println(" ▒ ░▒░ ░  ░ ▒ ▒░ ░░▒░ ░ ░ ░ ░▒  ░ ░ ░ ░  ░            ");
+    System.out.println(" ░  ░░ ░░ ░ ░ ▒   ░░░ ░ ░ ░  ░  ░     ░               ");
+    System.out.println(" ░  ░  ░    ░ ░     ░           ░     ░  ░           ");
+    System.out.println("");         
+  }
+
+}
 
 }
