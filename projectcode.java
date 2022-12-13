@@ -22,10 +22,10 @@ public class projectcode{
     if(args.length != 0 && args[0].equals("-help")) {
       displayHelp();
     }
+    finalGame();
 
     Title();
     String playerName = Prologue();
-    ASCIImap();
     TextSequene1(playerName);
 
   }
@@ -61,6 +61,7 @@ public class projectcode{
     System.out.println(name + " hears a voice: In order to make it out of here "
                           + "alive, you must prove your wit! Or you will haunt "
                           + "this house for all eternity");
+    ASCIImap();
     return name;
   }
 
@@ -290,7 +291,59 @@ public class projectcode{
 
   //Final Game
   public static void finalGame(){
-      Epilogue(null);
+    Scanner input = new Scanner(System.in);
+    System.out.println("I have one final challenge for you.");
+    pause(500);
+    System.out.println("Rock-Paper-Scissors! Type your choice at 3.");
+    pause(1000);
+    System.out.println("1");pause(700);
+    System.out.println("2");pause(700);
+    System.out.println("3");
+    String userChoice = input.nextLine();
+    userChoice.toLowerCase();
+    int userChoiceNum = 0;
+
+    //transform user String into number (if possible)
+    if(userChoice.equals("rock")){
+      userChoiceNum = 0;
+    }else if(userChoice.equals("paper")){
+      userChoiceNum = 1;
+    }else if(userChoice.equals("scissors")){
+      userChoiceNum = 2;
+    }else{
+      System.out.println(userChoice + " is not part of 'Rock 'Paper' 'Scissors'. Again.");
+      finalGame();
+    }
+
+    //random choice for computer
+    int rand = (int)(Math.random() * 3);
+
+    //evalute both choices against each other
+    if(((rand == 0 )&&(userChoiceNum == 0)) ||
+       ((rand == 1 )&&(userChoiceNum == 1)) ||
+       ((rand == 2 )&&(userChoiceNum == 2))){
+        System.out.println("We tied. Again.");
+        pause(2000);
+        finalGame();
+
+    }else if(((rand == 0 )&&(userChoiceNum == 2)) ||
+             ((rand == 1 )&&(userChoiceNum == 0)) ||
+             ((rand == 2 )&&(userChoiceNum == 1))){
+        System.out.println("I won!");
+        pause(2000);
+        System.out.println("");
+        NotQuite();
+        
+    }else if(((rand == 0 )&&(userChoiceNum == 1)) ||
+             ((rand == 1 )&&(userChoiceNum == 2)) ||
+             ((rand == 2 )&&(userChoiceNum == 0))){
+        System.out.println("You won :(");
+        pause(2000);
+        System.out.println("");
+        Epilogue(userChoice);
+     }
+
+      
   }
 
   //Epilogue
