@@ -1,5 +1,4 @@
 import java.util.*;
-import java.io.*;
 
 public class projectcode{
 
@@ -11,12 +10,11 @@ public class projectcode{
    * - ASCII map of house ✔
    * - Puzzle 1: Typing Game ✔
    * - Puzzle 2: Mathgame ✔
-   * - Puzzle 3: Tic-Tac-Toe
+   * - Puzzle 3: Tic-Tac-Toe ✔
    * - Final game
    * - Epilogue
    * - Skeleton of the script (all the print statements) ✔
    */
-
 
   //main method
   public static void main(String[] args){
@@ -24,13 +22,24 @@ public class projectcode{
     if(args.length != 0 && args[0].equals("-help")) {
       displayHelp();
     }
-    // Title();
-    // String playerName = Prologue();
-    // ASCIImap();
-    // TextSequene1(playerName);
-    Mathgame();
+
+    Title();
+    String playerName = Prologue();
+    ASCIImap();
+    TextSequene1(playerName);
 
   }
+
+  public static void displayHelp() {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Follow instructions for each mini game to escape the"
+                    + "haunted house. To quit game while playing, press: "
+                    + "Ctrl + C");
+    pause(2000);
+    System.out.println("Press Enter to exit help menu!");
+    input.nextLine();
+}
+
   //method to put the prologue in
   public static String Prologue(){
     Scanner input = new Scanner(System.in);
@@ -55,37 +64,13 @@ public class projectcode{
     return name;
   }
 
-  //method for the map
-   public static void ASCIImap(){
-    // Print the roof of the house
-    System.out.println("   /\\");
-    System.out.println("  /  \\");
-    System.out.println(" /    \\");
-
-    // Print the walls of the house
-    System.out.println("+------+");
-    System.out.println("|      |");
-    System.out.println("|      |");
-
-    // Print the foundation of the house
-    System.out.println("+------+");
-  }
- 
-public static void displayHelp() {
-    System.out.println("Follow instructions for each mini game to escape the"
-                    + "haunted house. To quit game while playing, press: "
-                    + "Ctrl + C");
-    pause(2000);
-    System.out.println("Press Enter to exit help menu!");
-}
-
   public static void TextSequene1(String name){
     Scanner input = new Scanner(System.in);
 
     System.out.println("");
     System.out.println(name + " looks up at the mirror covered in dirt, and "
-                        + "notices something(or someone) is writing on it. "
-                        + "They open the vanity and find a paper and a pen.");
+                        + "notices something(or someone) is writing on it. ");
+    System.out.println("They open the vanity and find a paper and a pen.");
     pause(2000);
     System.out.println("Are you going to: ");
     System.out.println("1. Try and copy down the words?");
@@ -144,6 +129,7 @@ public static void displayHelp() {
     System.out.println("The voice returns: ' A home owner should  know how to "
                       + "do some basic math.' ");
     pause(2000);  
+    Mathgame();
   }
   
 
@@ -155,17 +141,20 @@ public static void displayHelp() {
     int num2 = (int)(Math.random()*(50-6+1)+6);
     String operator = (new Random().nextInt() < 0) ? "*" : "/";
     //calculate the result
-    double result = (operator.equals("*"))? num1*num2 : num1/num2;
+    double result = (operator.equals("*"))? num1*num2 : (double)num1/num2;
     result = Math.round(result*100.0)/100.0;
+
     //get the users answer
-    System.out.println("What is the answer?");
+    System.out.println("What is the answer? (2 decimal places)");
     System.out.println(num1 + " " + operator + " " +  num2);
     double userInput = input.nextDouble();
+    
     
     //check the users answer and give feedback
     if (userInput == result){
       System.out.println("Im impressed, the last guy wasn't so lucky..."
                         + "lights on please!");
+        TextSequene3();
 
     }else{
       System.out.println("Our ghost hiring budget is tight, ill give you"
@@ -178,17 +167,22 @@ public static void displayHelp() {
     System.out.println("Ah yes! The light turns on, you see a rocking chair and"
                       + " the Queen of England is sitting on it !!!");
     pause(2000);
-    System.out.println("What will you say?");
-    pause(2000);
-    System.out.println("1. oy Im bri'ish too!");
-    System.out.println("2. USA USA USA!");
-    int choice = input.nextInt();
-    if(choice == 1){
-
-    }else if(choice ==2){
-
-    }else{
-      System.out.println("I didn't hear you can you repeat that?");
+    System.out.println("");
+    while(true){
+      System.out.println("What will you say?");
+      pause(500);
+      System.out.println("1. oy Im bri'ish too!");
+      System.out.println("2. USA USA USA!");
+      int choice = input.nextInt();
+      if(choice == 1){
+        System.out.println("I don't think you are. I challenge you to TicTacToe!");
+        TicTacToe();
+      }else if(choice == 2){
+        System.out.println("LET'S FIGHT FOR INDEPENCE THEN! TIC-TAC-TOE!");
+        TicTacToe();
+      }else{
+        System.out.println("I didn't hear you can you repeat that?");
+      }
     }
   }
 
@@ -200,10 +194,10 @@ public static void displayHelp() {
     String[] board = {"1","2","3","4","5","6","7","8","9"};
 
     
-    while(checkBoard(board)== "GOING"){
+    while(checkBoard(board) == "GOING"){
       printBoard(board);
       
-      if(checkBoard(board)!="WIN"){
+      if(checkBoard(board) != "WIN"){
         System.out.println("Type the number where you want to set you symbol:");
         int choosenField = input.nextInt();
         if((board[choosenField-1] == "X")||(board[choosenField-1]=="O")){
@@ -254,6 +248,7 @@ public static void displayHelp() {
         count++;
         if(count > 8){
           System.out.println("It's a draw");
+          TicTacToe();
           return "DRAW";
         }
       }
@@ -268,7 +263,9 @@ public static void displayHelp() {
         (board[0].equals("X") && board[4].equals("X") && board[8].equals("X")) ||
         (board[2].equals("X") && board[4].equals("X") && board[6].equals("X")) ){
           System.out.println("You won!");
+          finalGame();
           return "WIN";
+          
     }
     //Execute when computer has won
     else if((board[0].equals("O") && board[1].equals("O") && board[2].equals("O")) ||
@@ -282,8 +279,7 @@ public static void displayHelp() {
                   printBoard(board);
                   System.out.println("You lost!");
                   System.out.println("The ghost kills you. You are now a ghost too.");
-                  //System.out.println("Try again:");
-                  //TicTacToe();
+                  GameOver();
                   return "LOSS";
       }        
       //if there is no winner or a draw the game continues
@@ -294,7 +290,7 @@ public static void displayHelp() {
 
   //Final Game
   public static void finalGame(){
-      System.out.println("Final game"); //just here for test purposes
+      Epilogue(null);
   }
 
   //Epilogue
@@ -314,8 +310,37 @@ public static void displayHelp() {
     System.out.println("What if people paid to do this! Something like "
                         + name + "'s Escape Rooms!");
     pause(3000);
-    System.out.println("THE END");
+    EndText();
     Ghost();
+    System.exit(0);
+  }
+
+  public static void GameOver() {
+
+    pause(2000);
+    System.out.println("You look up and the Queen of England is gone. The empty"
+                      + " chair creaks and you can only hear your breath. You "
+                      + "blink, suddenly there's light and music in the house."
+                      + "You hear people talking at the dining table and walk "
+                      + "over, recognizing a voice. *Realization* ");
+    pause(2000);
+    System.out.println("It's the ghost you've been hearing this whole time.");
+    pause(2000);
+    System.out.println("Shi-");
+    GameOverText();
+    System.exit(0);
+  }
+
+  public static void NotQuite() {
+
+    pause(2000);
+    System.out.println(" 'It's a shame!' you hear booming through the walls.'We "
+                      + "will have to call HR to start your on-boarding process."
+                      + " Can I get you a coffee?' ");
+    pause(2000);
+    GameOverText();
+    System.exit(0);
+  
   }
 
    public static void pause(long milliseconds) {
@@ -323,6 +348,23 @@ public static void displayHelp() {
       Thread.sleep(milliseconds);
     } catch (InterruptedException ie) {}
   }
+
+   //method for the map
+   public static void ASCIImap(){
+    // Print the roof of the house
+    System.out.println("   /\\");
+    System.out.println("  /  \\");
+    System.out.println(" /    \\");
+
+    // Print the walls of the house
+    System.out.println("+------+");
+    System.out.println("|      |");
+    System.out.println("|      |");
+
+    // Print the foundation of the house
+    System.out.println("+------+");
+  }
+
   public static void Title(){
     System.out.println("▓█████   ██████  ▄████▄   ▄▄▄       ██▓███  ▓█████    ");
     System.out.println("▓█   ▀ ▒██    ▒ ▒██▀ ▀█  ▒████▄    ▓██░  ██▒▓█   ▀    ");
@@ -330,7 +372,7 @@ public static void displayHelp() {
     System.out.println("▒▓█  ▄   ▒   ██▒▒▓▓▄ ▄██▒░██▄▄▄▄██ ▒██▄█▓▒ ▒▒▓█  ▄    ");
     System.out.println("░▒████▒▒██████▒▒▒ ▓███▀ ░ ▓█   ▓██▒▒██▒ ░  ░░▒████▒   ");
     System.out.println("░░ ▒░ ░▒ ▒▓▒ ▒ ░░ ░▒ ▒  ░ ▒▒   ▓▒█░▒▓▒░ ░  ░░░ ▒░ ░   ");
-    System.out.println(" ░ ░  ░░ ░▒  ░ ░  ░  ▒     ▒   ▒▒ ░░▒ ░      ░ ░  ░   ");
+    System.out.println(" ░ ░  ░░ ░▒  ░ ░  ░  ▒     ▒   ▒▒ ░░▒ ░      ░ ░  ░   ");  
     System.out.println("   ░   ░  ░  ░  ░          ░   ▒   ░░          ░      ");
     System.out.println("   ░  ░      ░  ░ ░            ░  ░            ░  ░   ");
     System.out.println("");
@@ -345,6 +387,30 @@ public static void displayHelp() {
     System.out.println(" ░  ░  ░    ░ ░     ░           ░     ░  ░           ");
     System.out.println("");         
   }
+  public static void GameOverText(){
+  System.out.println("  ▄▀  ██   █▀▄▀█ ▄███▄       ████▄     ▄   ▄███▄   █▄▄▄▄ ");
+  System.out.println("▄▀    █ █  █ █ █ █▀   ▀      █   █      █  █▀   ▀  █  ▄▀ ");
+  System.out.println("█ ▀▄  █▄▄█ █ ▄ █ ██▄▄        █   █ █     █ ██▄▄    █▀▀▌  ");
+  System.out.println("█   █ █  █ █   █ █▄   ▄▀     ▀████  █    █ █▄   ▄▀ █  █  ");
+  System.out.println(" ███     █    █  ▀███▀               █  █  ▀███▀     █   ");
+  System.out.println("    █    ▀                            ██             ▀    ");
+  System.out.println("    ▀                                  █                 ");
+  }
+
+
+  public static void EndText(){
+    System.out.println(".-') _    ('-. .-.   ('-.           ('-.       .-') _  _ .-') _       "); 
+    System.out.println("(  OO) )  ( OO )  / _(  OO)        _(  OO)     ( OO ) )( (  OO) )       ");
+    System.out.println("/     '._ ,--. ,--.(,------.      (,------.,--./ ,--,'  |     .'_       ");
+    System.out.println("|'--...__)|  | |  | |  .---'       |  .---'|   | |  ||  ,`'--..._)      ");
+    System.out.println("'--.  .--'|   .|  | |  |           |  |    |    ||  | ) |  |   | |'      ");
+    System.out.println("   |  |   |       |(|  '--.       (|  '--. |  .     |/  |  |   ' |      ");
+    System.out.println("   |  |   |  .-.  | |  .--'        |  .--' |  ||    |   |  |   / :      ");
+    System.out.println("   |  |   |  | |  | |  `---.       |  `---.|  | |   |   |  '--'  /      ");
+    System.out.println("   `--'   `--' `--' `------'       `------'`--'  `--'   `-------'       "); 
+    System.out.println("");
+  }
+
   public static void Ghost(){
   System.out.println("  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⡤⠖⠒⠛⠛⠛⠛⠛⠓⠶⢤⣄⡀⠀⠀⠀⠀⠀");
   System.out.println("⠀⠀⠀⠀⠀⢀⣠⡶⠞⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠷⣄⡀⠀⠀⠀ ");
