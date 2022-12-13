@@ -1,20 +1,6 @@
 import java.util.*;
 
-public class projectcode{
-
-   /*
-   * TASKS:
-   * - command line -help ✔
-   * - storage of name ✔
-   * - Prologue ✔
-   * - ASCII map of house ✔
-   * - Puzzle 1: Typing Game ✔
-   * - Puzzle 2: Mathgame ✔
-   * - Puzzle 3: Tic-Tac-Toe ✔
-   * - Final game
-   * - Epilogue
-   * - Skeleton of the script (all the print statements) ✔
-   */
+public class projectdemo{
 
   //main method
   public static void main(String[] args){
@@ -25,7 +11,10 @@ public class projectcode{
 
     Title();
     String playerName = Prologue();
-    TextSequene1(playerName);
+    TextSequene2();
+
+
+    
 
   }
 
@@ -49,78 +38,18 @@ public class projectcode{
     System.out.println(name + " is bored of your everyday life, so they decide"
                         + " to buy a house "
                         + "in the country.");
-    pause(2000);
+    pause(1000);
     System.out.println("When " + name + " arrives, the house looks different"
                         + " than it did on Zillow...");
-    pause(2000);
+    pause(1000);
     System.out.println(name +" decides to check it out, but as soon as they"
                         + " step inside a cold breeze hits them "
                         + "and all the windows and doors slam shut!");
-    pause(2000);
+    pause(1000);
     System.out.println(name + " hears a voice: In order to make it out of here "
                           + "alive, you must prove your wit! Or you will haunt "
                           + "this house for all eternity");
-    ASCIImap();
     return name;
-  }
-
-  public static void TextSequene1(String name){
-    Scanner input = new Scanner(System.in);
-
-    System.out.println("");
-    System.out.println(name + " looks up at the mirror covered in dirt, and "
-                        + "notices something(or someone) is writing on it. ");
-    System.out.println("They open the vanity and find a paper and a pen.");
-    pause(2000);
-    System.out.println("Are you going to: ");
-    System.out.println("1. Try and copy down the words?");
-    System.out.println("2. Use a pen to pick the lock?");
-
-    int playerChoice = input.nextInt();
-
-    if(playerChoice == 2){
-      System.out.println("You pick the lock and open the door to find yourself "
-                        + "faced at the edge of a cliff; back inside! ");
-      pause(2000);
-      TextSequene1(name);
-    }else if(playerChoice == 1){
-      System.out.println("Correct Choice, " + name + " won't mess up! ");
-      Typing(name);
-    }
-    else{
-      TextSequene1(name);
-    }
-  }
-
-  //Puzzle 1: Typing Game
-  public static void Typing(String name){
-    Scanner input = new Scanner(System.in);
-
-      //creating random characters
-      char ch1 = (char)('a' + (Math.random() * ('z' - 'a' + 1)));
-      char ch2 = (char)('A' + (Math.random() * ('Z' - 'A' + 1)));
-      char ch3 = (char)('a' + (Math.random() * ('z' - 'a' + 1)));
-      char ch4 = (char)('A' + (Math.random() * ('Z' - 'A' + 1)));
-
-      //making a "word" from the random characters
-      String word = "" + ch1 + ch2 + ch3 + ch4;
-
-      //Asking the user to type the "word"
-      System.out.println("Copy down the following: " + word );
-
-      String userInput = input.next();
-
-      //giving the user feedback; depending if they typed the word right
-      if (userInput.equals(word)){
-        System.out.println("Perhaps we've been too easy on you...");
-        TextSequene2();
-      }else if (userInput.equalsIgnoreCase(word)){
-        System.out.println("Never been to grade school? Mind the case!");
-        Typing(name);
-      }else{
-        System.out.println("Your future is looking dim... try again");
-        Typing(name);
-      }
   }
   public static void TextSequene2(){
     System.out.println("The door creaks open, you enter the living room. "
@@ -128,12 +57,9 @@ public class projectcode{
     pause(2000);
     System.out.println("The voice returns: ' A home owner should  know how to "
                       + "do some basic math.' ");
-    pause(2000);
+    pause(1000);
     Mathgame();
   }
-
-
-  //Puzzle 2: MathGame
   public static void Mathgame(){
     Scanner input = new Scanner(System.in);
     //generate random numbers + operator
@@ -161,6 +87,7 @@ public class projectcode{
       Mathgame();
     }
   }
+  
   public static void TextSequene3(){
     Scanner input = new Scanner(System.in);
     System.out.println("Ah yes! The light turns on, you see a rocking chair and"
@@ -175,9 +102,11 @@ public class projectcode{
       int choice = input.nextInt();
       if(choice == 1){
         System.out.println("I don't think you are. I challenge you to TicTacToe!");
+        pause(500);
         TicTacToe();
       }else if(choice == 2){
         System.out.println("LET'S FIGHT AND SEE WHO'S BETTER! TIC-TAC-TOE!");
+        pause(500);
         TicTacToe();
       }else{
         System.out.println("I didn't hear you can you repeat that?");
@@ -243,7 +172,7 @@ public class projectcode{
         count++;
         if(count > 8){
           System.out.println("It's a draw");
-          TicTacToe();
+          GameOver();
           return "DRAW";
         }
       }
@@ -258,7 +187,7 @@ public class projectcode{
         (board[0].equals("X") && board[4].equals("X") && board[8].equals("X")) ||
         (board[2].equals("X") && board[4].equals("X") && board[6].equals("X")) ){
           System.out.println("You won!");
-          finalGame();
+          GameOver();
           return "WIN";
 
     }
