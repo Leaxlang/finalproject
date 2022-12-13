@@ -25,7 +25,6 @@ public class projectcode{
 
     Title();
     String playerName = Prologue();
-    ASCIImap();
     TextSequene1(playerName);
 
   }
@@ -309,7 +308,6 @@ public class projectcode{
                         + name + "'s Escape Rooms!");
     pause(3000);
     EndText();
-    Ghost();
     System.exit(0);
   }
 
@@ -323,6 +321,7 @@ public class projectcode{
                       + "over, recognizing a voice. *Realization* ");
     pause(2000);
     System.out.println("It's the ghost you've been hearing this whole time.");
+    Ghost();
     pause(2000);
     System.out.println("Shi-");
     GameOverText();
@@ -336,6 +335,7 @@ public class projectcode{
                       + "will have to call HR to start your on-boarding process."
                       + " Can I get you a coffee?' ");
     pause(2000);
+    Ghost();
     GameOverText();
     System.exit(0);
 
