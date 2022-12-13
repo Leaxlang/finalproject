@@ -411,6 +411,7 @@ public class projectcode{
     System.out.println("");
   }
 
+
   public static void Ghost(){
   System.out.println("  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⡤⠖⠒⠛⠛⠛⠛⠛⠓⠶⢤⣄⡀⠀⠀⠀⠀⠀");
   System.out.println("⠀⠀⠀⠀⠀⢀⣠⡶⠞⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠷⣄⡀⠀⠀⠀ ");
@@ -438,5 +439,5 @@ public class projectcode{
   System.out.println("                ⠘⢷⣄⣤⠶⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
   System.out.println("");
 }
-
 }
+  
