@@ -129,10 +129,10 @@ public class projectcode{
     pause(2000);
     System.out.println("The voice returns: ' A home owner should  know how to "
                       + "do some basic math.' ");
-    pause(2000);  
+    pause(2000);
     Mathgame();
   }
-  
+
 
   //Puzzle 2: MathGame
   public static void Mathgame(){
@@ -149,8 +149,7 @@ public class projectcode{
     System.out.println("What is the answer? (2 decimal places)");
     System.out.println(num1 + " " + operator + " " +  num2);
     double userInput = input.nextDouble();
-    
-    
+
     //check the users answer and give feedback
     if (userInput == result){
       System.out.println("Im impressed, the last guy wasn't so lucky..."
@@ -179,7 +178,7 @@ public class projectcode{
         System.out.println("I don't think you are. I challenge you to TicTacToe!");
         TicTacToe();
       }else if(choice == 2){
-        System.out.println("LET'S FIGHT FOR INDEPENCE THEN! TIC-TAC-TOE!");
+        System.out.println("LET'S FIGHT AND SEE WHO'S BETTER! TIC-TAC-TOE!");
         TicTacToe();
       }else{
         System.out.println("I didn't hear you can you repeat that?");
@@ -194,24 +193,24 @@ public class projectcode{
     //creating array as the  field
     String[] board = {"1","2","3","4","5","6","7","8","9"};
 
-    
+
     while(checkBoard(board) == "GOING"){
       printBoard(board);
-      
+
       if(checkBoard(board) != "WIN"){
-        System.out.println("Type the number where you want to set you symbol:");
+        System.out.println("Type the number where you want to set your symbol:");
         int choosenField = input.nextInt();
         if((board[choosenField-1] == "X")||(board[choosenField-1]=="O")){
           System.out.println("This field has already been claimed.");
           choosenField = input.nextInt();
         }
-        
+
         board[choosenField-1] = "X";
         printBoard(board);
-      
+
       }
       while(true){
-        
+
         int randomNumber = (int)(Math.random()*(8)+1);
         if (board[randomNumber] != "X" &&  board[randomNumber] != "O"){
           board[randomNumber] = "O";
@@ -225,11 +224,11 @@ public class projectcode{
         }else{
           randomNumber = (int)(Math.random()*(8)+1);
         }
-        
+
       }
-      
+
     }
-     
+
   }
   //method to print the tictactoe board
   public static void printBoard(String[] board){
@@ -240,7 +239,7 @@ public class projectcode{
     System.out.println(board[6] + " | " + board[7] + " | " + board[8]);
   }
 
-  //method to check the tictactoe board for wins 
+  //method to check the tictactoe board for wins
   public static String checkBoard(String[] board){
     int count = 0;
     //check eery String in the array to see if 'empty' spaces are left
@@ -266,7 +265,7 @@ public class projectcode{
           System.out.println("You won!");
           finalGame();
           return "WIN";
-          
+
     }
     //Execute when computer has won
     else if((board[0].equals("O") && board[1].equals("O") && board[2].equals("O")) ||
@@ -279,10 +278,9 @@ public class projectcode{
                 (board[2].equals("O") && board[4].equals("O") && board[6].equals("O"))){
                   printBoard(board);
                   System.out.println("You lost!");
-                  System.out.println("The ghost kills you. You are now a ghost too.");
                   GameOver();
                   return "LOSS";
-      }        
+      }
       //if there is no winner or a draw the game continues
       else{
         return "GOING";
@@ -364,7 +362,6 @@ public class projectcode{
                         + name + "'s Escape Rooms!");
     pause(3000);
     EndText();
-    Ghost();
     System.exit(0);
   }
 
@@ -378,6 +375,7 @@ public class projectcode{
                       + "over, recognizing a voice. *Realization* ");
     pause(2000);
     System.out.println("It's the ghost you've been hearing this whole time.");
+    Ghost();
     pause(2000);
     System.out.println("Shi-");
     GameOverText();
@@ -391,9 +389,10 @@ public class projectcode{
                       + "will have to call HR to start your on-boarding process."
                       + " Can I get you a coffee?' ");
     pause(2000);
+    Ghost();
     GameOverText();
     System.exit(0);
-  
+
   }
 
    public static void pause(long milliseconds) {
@@ -425,7 +424,7 @@ public class projectcode{
     System.out.println("▒▓█  ▄   ▒   ██▒▒▓▓▄ ▄██▒░██▄▄▄▄██ ▒██▄█▓▒ ▒▒▓█  ▄    ");
     System.out.println("░▒████▒▒██████▒▒▒ ▓███▀ ░ ▓█   ▓██▒▒██▒ ░  ░░▒████▒   ");
     System.out.println("░░ ▒░ ░▒ ▒▓▒ ▒ ░░ ░▒ ▒  ░ ▒▒   ▓▒█░▒▓▒░ ░  ░░░ ▒░ ░   ");
-    System.out.println(" ░ ░  ░░ ░▒  ░ ░  ░  ▒     ▒   ▒▒ ░░▒ ░      ░ ░  ░   ");  
+    System.out.println(" ░ ░  ░░ ░▒  ░ ░  ░  ▒     ▒   ▒▒ ░░▒ ░      ░ ░  ░   ");
     System.out.println("   ░   ░  ░  ░  ░          ░   ▒   ░░          ░      ");
     System.out.println("   ░  ░      ░  ░ ░            ░  ░            ░  ░   ");
     System.out.println("");
@@ -438,7 +437,7 @@ public class projectcode{
     System.out.println(" ▒ ░▒░ ░  ░ ▒ ▒░ ░░▒░ ░ ░ ░ ░▒  ░ ░ ░ ░  ░            ");
     System.out.println(" ░  ░░ ░░ ░ ░ ▒   ░░░ ░ ░ ░  ░  ░     ░               ");
     System.out.println(" ░  ░  ░    ░ ░     ░           ░     ░  ░           ");
-    System.out.println("");         
+    System.out.println("");
   }
   public static void GameOverText(){
   System.out.println("  ▄▀  ██   █▀▄▀█ ▄███▄       ████▄     ▄   ▄███▄   █▄▄▄▄ ");
@@ -452,7 +451,7 @@ public class projectcode{
 
 
   public static void EndText(){
-    System.out.println(".-') _    ('-. .-.   ('-.           ('-.       .-') _  _ .-') _       "); 
+    System.out.println(".-') _    ('-. .-.   ('-.           ('-.       .-') _  _ .-') _       ");
     System.out.println("(  OO) )  ( OO )  / _(  OO)        _(  OO)     ( OO ) )( (  OO) )       ");
     System.out.println("/     '._ ,--. ,--.(,------.      (,------.,--./ ,--,'  |     .'_       ");
     System.out.println("|'--...__)|  | |  | |  .---'       |  .---'|   | |  ||  ,`'--..._)      ");
@@ -460,7 +459,7 @@ public class projectcode{
     System.out.println("   |  |   |       |(|  '--.       (|  '--. |  .     |/  |  |   ' |      ");
     System.out.println("   |  |   |  .-.  | |  .--'        |  .--' |  ||    |   |  |   / :      ");
     System.out.println("   |  |   |  | |  | |  `---.       |  `---.|  | |   |   |  '--'  /      ");
-    System.out.println("   `--'   `--' `--' `------'       `------'`--'  `--'   `-------'       "); 
+    System.out.println("   `--'   `--' `--' `------'       `------'`--'  `--'   `-------'       ");
     System.out.println("");
   }
 
@@ -493,4 +492,3 @@ public class projectcode{
   System.out.println("");
 }
 }
-  
