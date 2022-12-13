@@ -149,7 +149,6 @@ public class projectcode{
     System.out.println(num1 + " " + operator + " " +  num2);
     double userInput = input.nextDouble();
 
-
     //check the users answer and give feedback
     if (userInput == result){
       System.out.println("Im impressed, the last guy wasn't so lucky..."
